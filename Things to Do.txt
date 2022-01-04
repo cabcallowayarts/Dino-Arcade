@@ -1,0 +1,1 @@
+1. animatedsprite script is not complete, unsure if we're doing animations
