@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
             this.ghosts[i].gameObject.SetActive(true);
         }
 
-        this.pacman.gameObject.SetActive(true);
+        this.pacman.ResetState();
     }
 
     private void GameOver()

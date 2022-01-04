@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Pacman : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public AnimatedSprite deathSequence;
+    public SpriteRenderer spriteRenderer { get; private set; }
+    public new Collider2D collider { get; private set; }
+    public Movement movement { get; private set; }
 
-    // Update is called once per frame
-    void Update()
+    public void ResetState()
     {
-        
+        this.enabled = true;
+        this.spriteRenderer.enabled = true;
+        this.collider.enabled = true;
+        this.deathSequence.enabled = false;
+        this.deathSequence.spriteRenderer.enabled = false;
+        this.movement.ResetState();
+        this.gameObject.SetActive(true);
     }
 }
