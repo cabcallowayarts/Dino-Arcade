@@ -92,5 +92,49 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
     }
+
+    public void PelletEaten(Pellet pellet)
+    {
+        
+        pellet.gameObject.SetActive(false);
+        pellet.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        if (!(pellet.gameObject.activeSelf))
+        {
+            Debug.Log("this works");
+        }
+        SetScore(this.score + pellet.points);
+
+        if (!HasRemainingPellets())
+        {
+            this.pacman.gameObject.SetActive(false);
+            Invoke(nameof(NewRound), 3.0f);
+        }
+    }
+
+    public void PowerPelletEaten(PowerPellet pellet)
+    {
+        
+        pellet.gameObject.SetActive(false);
+        
+        SetScore(this.score + pellet.PowerPelletPoints);
+
+        if (!HasRemainingPellets())
+        {
+            this.pacman.gameObject.SetActive(false);
+            Invoke(nameof(NewRound), 3.0f);
+        }
+    }
+
+    private bool HasRemainingPellets()
+    {
+        foreach (Transform pellet in this.pellets)
+        {
+            if(pellet.gameObject.activeSelf)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     
 }
