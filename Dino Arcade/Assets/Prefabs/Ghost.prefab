@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 5924345696004437947}
   - component: {fileID: 5728468764835630238}
   - component: {fileID: 4909855345370767612}
-  - component: {fileID: 8967646105283710898}
-  - component: {fileID: 2224673671399773325}
   m_Layer: 11
   m_Name: Ghost
   m_TagString: Untagged
@@ -122,34 +120,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
---- !u!114 &8967646105283710898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7104239985407126580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414783b6b1a7479478018d84c4ed2c5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: 200
---- !u!114 &2224673671399773325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7104239985407126580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec3ad2e05c8e8bf48a8b09e335870b3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 7
-  speedMultiplier: 1
-  initialDirection: {x: 0, y: 0}
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 0

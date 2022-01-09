@@ -98,10 +98,10 @@ public class GameManager : MonoBehaviour
         
         pellet.gameObject.SetActive(false);
         pellet.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        if (!(pellet.gameObject.activeSelf))
+        /*if (!(pellet.gameObject.activeSelf))
         {
             Debug.Log("this works");
-        }
+        }*/
         SetScore(this.score + pellet.points);
 
         if (!HasRemainingPellets())
@@ -135,6 +135,23 @@ public class GameManager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void PreyEaten(Prey prey)
+    {
+        prey.gameObject.SetActive(false);
+        prey.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        if (!(prey.gameObject.activeSelf))
+        {
+            Debug.Log("prey works");
+        }
+        SetScore(this.score + prey.points);
+
+        if (!HasRemainingPellets())
+        {
+            this.pacman.gameObject.SetActive(false);
+            Invoke(nameof(NewRound), 3.0f);
+        }
     }
     
 }
