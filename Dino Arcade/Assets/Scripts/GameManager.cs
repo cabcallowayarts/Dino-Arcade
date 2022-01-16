@@ -10,6 +10,13 @@ public class GameManager : MonoBehaviour
     public int score { get; private set; }
     public int lives { get; private set; }
 
+    public int ScoreGetter()
+    {
+        int value = score;
+        return value;
+    }
+    
+    
     private void Start()
     {
         NewGame();
