@@ -18,7 +18,7 @@ public class Pacman : MonoBehaviour
         //this.Dino = 
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         // Set the new direction based on the current input
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))

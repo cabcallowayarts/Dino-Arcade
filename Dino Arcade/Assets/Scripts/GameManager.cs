@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
     {
         
         pellet.gameObject.SetActive(false);
-        pellet.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+
         /*if (!(pellet.gameObject.activeSelf))
         {
             Debug.Log("this works");
@@ -160,5 +160,7 @@ public class GameManager : MonoBehaviour
             Invoke(nameof(NewRound), 3.0f);
         }
     }
+
+
     
 }
