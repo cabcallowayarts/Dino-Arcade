@@ -12,9 +12,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Triassic Period Intro.unity
     guid: 4a786f8c2b5c2fd43b3a105616f7fad1
   - enabled: 1
+    path: Assets/Scenes/Alwalkeria Intro.unity
+    guid: b6fe5b9d7dd33ce468123681d654af1b
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Jurassic Period Intro.unity
+    guid: 511225860970dce4eadd3b1b2a568318
+  - enabled: 1
+    path: Assets/Scenes/Brachiosaurus Intro.unity
+    guid: c37a69d6d038f724a9048c9205c96605
+  - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: c7776d51f6a6f214a8a15cafd0daebf1
+  - enabled: 1
+    path: Assets/Scenes/Cretaceous Period Intro.unity
+    guid: e6503ac335704b344a1c22b75d87b2e9
+  - enabled: 1
+    path: Assets/Scenes/Carnotaurus Intro.unity
+    guid: cf8af001215b7144a988ef97757ad858
   m_configObjects: {}

@@ -46,7 +46,7 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 position = this.rigidbody.position;
-        Vector2 translation = this.direction * this.speed * this.speedMultiplier * Time.fixedDeltaTime;
+        Vector2 translation = /*this.direction * */this.speed * this.speedMultiplier * Time.fixedDeltaTime;
 
         this.rigidbody.MovePosition(position + translation);
     }
@@ -56,15 +56,15 @@ public class Movement : MonoBehaviour
         // Only set the direction if the tile in that direction is available
         // otherwise we set it as the next direction so it'll automatically be
         // set when it does become available
-        if (forced || !Occupied(direction))
-        {
+        //if (forced || !Occupied(direction))
+        //{
             this.direction = direction;
-            this.nextDirection = Vector2.zero;
-        }
-        else
-        {
-            this.nextDirection = direction;
-        }
+            //this.nextDirection = Vector2.zero;
+        //}
+        //else
+        //{
+        //    this.nextDirection = direction;
+        //}
     }
 
     public bool Occupied(Vector2 direction)

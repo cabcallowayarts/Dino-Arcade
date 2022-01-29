@@ -1,24 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public Ghost[] ghosts;
+    public Prey[] prey;
     public Pacman pacman;
     public Transform pellets;
     public int score { get; private set; }
     public int lives { get; private set; }
+
+    public Text gameOverText;
+    
 
     public int ScoreGetter()
     {
         int value = score;
         return value;
     }
+
+    public int LivesGetter()
+    {
+        int value = lives;
+        return value;
+    }
     
     
     private void Start()
     {
+        this.pacman = GameObject.Find("Pacman").GetComponent<Pacman>();
         NewGame();
     }
 
@@ -32,6 +44,8 @@ public class GameManager : MonoBehaviour
 
     private void NewGame()
     {
+        //Enable this when game is ready to be exported
+        //SceneManager.LoadScene("TitleScreen");
         SetScore(0);
         SetLives(3);
         NewRound();
@@ -40,7 +54,10 @@ public class GameManager : MonoBehaviour
 
     private void NewRound()
     {
-        foreach(Transform pellet in this.pellets)
+        this.gameOverText = GameObject.Find("GameOverText").GetComponent<Text>();
+        this.gameOverText.enabled = false;
+
+        foreach (Transform pellet in this.pellets)
         {
             pellet.gameObject.SetActive(true);
         }
@@ -50,22 +67,31 @@ public class GameManager : MonoBehaviour
 
     private void ResetState()
     {
-        for (int i = 0; i < this.ghosts.Length; i++)
+        for (int i = 0; i < this.prey.Length; i++)
         {
-            this.ghosts[i].gameObject.SetActive(true);
+            this.prey[i].gameObject.SetActive(true);
         }
-
+        
         this.pacman.ResetState();
+    }
+
+    private void SetLives(int lives)
+    {
+        this.lives = lives;
+        
     }
 
     private void GameOver()
     {
-        for (int i = 0; i < this.ghosts.Length; i++)
+        this.gameOverText.enabled = true;
+
+        for (int i = 0; i < this.prey.Length; i++)
         {
-            this.ghosts[i].gameObject.SetActive(false);
+            this.prey[i].gameObject.SetActive(false);
         }
 
         this.pacman.gameObject.SetActive(false);
+        
     }
 
     private void SetScore(int score)
@@ -73,10 +99,7 @@ public class GameManager : MonoBehaviour
         this.score = score;
     }
 
-    private void SetLives(int lives)
-    {
-        this.lives = lives;
-    }
+ 
 
     public void GhostEaten(Ghost ghost)
     {
@@ -88,10 +111,11 @@ public class GameManager : MonoBehaviour
     {
         this.pacman.gameObject.SetActive(false);
 
+
         SetLives(this.lives - 1);
         if (this.lives > 0)
         {
-            Invoke(nameof(ResetState), .0f);
+            Invoke(nameof(ResetState), 3.0f);
             
         }
         else
@@ -161,6 +185,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+   
 
     
 }

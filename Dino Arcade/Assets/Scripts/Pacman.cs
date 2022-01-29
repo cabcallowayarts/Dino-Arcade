@@ -23,6 +23,7 @@ public class Pacman : MonoBehaviour
         // Set the new direction based on the current input
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
+            
             this.movement.SetDirection(Vector2.up);
             //Dino.AdvanceVertical();
             this.spriteRenderer.flipY = false;
@@ -63,8 +64,9 @@ public class Pacman : MonoBehaviour
     public void ResetState()
     {
         this.enabled = true;
-        //this.spriteRenderer.enabled = true;
+        this.spriteRenderer.enabled = true;
         this.collider.enabled = true;
+        this.movement.enabled = true;
         //this.deathSequence.enabled = false;
         //.deathSequence.spriteRenderer.enabled = false;
         this.movement.ResetState();

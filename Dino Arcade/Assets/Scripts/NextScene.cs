@@ -14,10 +14,11 @@ public class NextScene : MonoBehaviour
     
     public void OnButtonPress()
     {
-        Debug.Log("ButtonPress");
         
-        if (currentSceneIndex <= SceneManager.sceneCount - 1)
+        
+        if (currentSceneIndex <= SceneManager.sceneCountInBuildSettings - 1)
         {
+            Debug.Log("ButtonPress");
             SceneManager.LoadScene(currentSceneIndex + 1);
         }
     }
