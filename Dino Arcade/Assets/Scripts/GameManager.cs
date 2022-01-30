@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public int lives { get; private set; }
 
     public Text gameOverText;
+    public int currentSceneIndex;
     
 
     public int ScoreGetter()
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         this.pacman = GameObject.Find("Pacman").GetComponent<Pacman>();
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         NewGame();
     }
 
@@ -110,7 +112,7 @@ public class GameManager : MonoBehaviour
     public void PacmanEaten()
     {
         this.pacman.gameObject.SetActive(false);
-
+        this.score = this.score - 100;
 
         SetLives(this.lives - 1);
         if (this.lives > 0)
@@ -138,8 +140,13 @@ public class GameManager : MonoBehaviour
         if (!HasRemainingPellets())
         {
             this.pacman.gameObject.SetActive(false);
-            Invoke(nameof(NewRound), 3.0f);
+            Invoke(nameof(LoadNextScene), 3.0f);
         }
+    }
+
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(this.currentSceneIndex + 1);
     }
 
     public void PowerPelletEaten(PowerPellet pellet)
