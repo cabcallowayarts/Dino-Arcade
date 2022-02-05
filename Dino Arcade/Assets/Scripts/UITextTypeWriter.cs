@@ -29,7 +29,7 @@ IEnumerator PlayText()
 	foreach (char c in story)
 	{
 		txt.text += c;
-		yield return new WaitForSeconds(0.125f);
+		yield return new WaitForSeconds(0.075f);
 	}
 		button.gameObject.SetActive(true);
 
